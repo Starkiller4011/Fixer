@@ -122,3 +122,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Ignore the token file as it will be created on first run
+Fixer/config/token.json
