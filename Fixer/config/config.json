@@ -1,0 +1,7 @@
+{
+    "initialized": true,
+    "members": true,
+    "verbose": true,
+    "command_prefix": "/",
+    "case_insensitive": false
+}
