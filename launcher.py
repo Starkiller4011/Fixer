@@ -4,20 +4,22 @@
 # Copyright (C) 2021 See LICENSE file
 
 # Import required libraries
-import pathlib
-import discord                          # discord API
-from discord.ext import commands        # discord bot API
-from pathlib import Path                # For file paths
-import logging                          # For logging
-import random                           # For dice rolls
-import json                             # For configuration
+# from Fixer.libs import mr_hands
+# import pathlib
+# import discord                          # discord API
+# from discord.ext import commands        # discord bot API
+# from pathlib import Path                # For file paths
+# import logging                          # For logging
+# import random                           # For dice rolls
+# import json                             # For configuration
 
-import Fixer
+# import Fixer
 from Fixer import Configurator
+from Fixer import MrHands
 
 configurator = Configurator()
-
-
+mr_hands = MrHands(configurator)
+mr_hands.run()
 
 # # First startup configuration
 # def configure():

@@ -123,6 +123,7 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# Ignore the token file and config file as they will be created on first run
+# Ignore Fixer specific files
 Fixer/config/token.json
 Fixer/config/config.json
+data/*

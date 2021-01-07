@@ -4,8 +4,8 @@
 # Copyright (C) 2021 See LICENSE file
 
 # Import required libraries
-from pathlib import Path                # For file paths
-import json                             # For configuration parsing
+from pathlib import Path
+import json
 
 class Configurator:
     def __init__(self, cwd = None):
@@ -57,6 +57,9 @@ class Configurator:
 
     def getToken(self):
         self.token = input("[Configurator] >> Please enter your bot token: ")
+        self.writeToken()
+    
+    def writeToken(self):
         with open(str(Path.joinpath(self.config_path, "token.json")), "w") as token_file:
             json.dump({"token": self.token}, token_file)
 
