@@ -31,7 +31,6 @@ class Configurator:
                     else:
                         print("[Configurator] >> Bot token is missing")
                         self.getToken()
-                    self.members = config["members"]
                     self.verbose = config["verbose"]
                     self.command_prefix = config["command_prefix"]
                     self.case_insensitive = config["case_insensitive"]
@@ -64,12 +63,10 @@ class Configurator:
     def configureBot(self):
         self.command_prefix = input("[Configurator] >> Please enter your command prefix: ")
         self.case_insensitive = self.getYesNo("[Configurator] >> Do you want case sensitive commands? [Y|N]: ")
-        self.members = self.getYesNo("[Configurator] >> Do you want to track server members? [Y|N]: ")
         self.verbose = self.getYesNo("[Configurator] >> Do you want to run in verbose mode? [Y|N]: ")
         self.initialized = True
         config = {
             "initialized": self.initialized,
-            "members": self.members,
             "verbose": self.verbose,
             "command_prefix": self.command_prefix,
             "case_insensitive": self.case_insensitive
