@@ -13,18 +13,19 @@ class Configurator:
             self.cwd = cwd
         else:
             self.cwd = Path(__file__).parents[2]
-        self.config_path = Path.joinpath(self.cwd, "Fixer/config")
-        self.data_path = Path.joinpath(self.cwd, "Fixer/data")
-        self.res_path = Path.joinpath(self.cwd, "Fixer/res")
-        self.libs_path = Path.joinpath(self.cwd, "Fixer/libs")
+        self.config_path = Path.joinpath(self.cwd, "config")
+        self.data_path = Path.joinpath(self.cwd, "data")
+        self.res_path = Path.joinpath(self.cwd, "res")
+        self.libs_path = Path.joinpath(self.cwd, "libs")
+        self.db_path = Path.joinpath(self.cwd, "db")
         if Path.exists(Path.joinpath(self.config_path, "config.json")):
-            print("[Configurator] >> Configuration file exists, loading config.json")
+            print("[Configurator] >> Configurator: [ OK ]")#Configuration file exists, loading config.json")
             with open(Path.joinpath(self.config_path, "config.json"), "r") as config_file:
                 config = json.load(config_file)
                 if "initialized" in config:
                     self.initialized = config["initialized"]
                 if self.initialized:
-                    print("[Configurator] >> Bot has been initialized, loading bot configuration")
+                    print("[Configurator] >> Bot:          [ OK ]")# has been initialized, loading bot configuration")
                     if Path.exists(Path.joinpath(self.config_path, "token.json")):
                         with open(str(Path.joinpath(self.config_path, "token.json")), "r") as token_file:
                             self.token = json.load(token_file)["token"]
@@ -39,7 +40,8 @@ class Configurator:
                     config_file.close()
                     self.run()
         else:
-            print("[Configurator] >> Configuration file does not exist, creating config.json and running intial bot configuration")
+            print(f"[Configurator] >> No configuration file found, running first time setup")
+            print("[Configurator] >> This is the Fixer configrator. It manages the settings of the Fixer discord app.")
             self.run()
         with open(str(Path.joinpath(self.config_path, "version.json")), "r") as version_file:
             versions = json.load(version_file)
