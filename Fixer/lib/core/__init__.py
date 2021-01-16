@@ -1,3 +1,8 @@
+#!/usr/bin/env python3
+# This is the Discord Cyberpunk RED RPG App
+# Author: Derek Blue
+# Copyright (C) 2021 See LICENSE file
+
 from .config import Configurator
 from .fixer_bot import FixerBot
 from .mr_hands import MrHands
