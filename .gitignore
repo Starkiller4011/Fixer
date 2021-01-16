@@ -127,5 +127,4 @@ Fixer/config/token.json
 Fixer/config/config.json
 Fixer/res/audio/
 Fixer/res/img/
-Fixer/data/
-Fixer/cogs/
+Fixer/logs/*

@@ -4,6 +4,9 @@ from Fixer.lib.core.config import Configurator
 from apscheduler.triggers.cron import CronTrigger
 
 class DataBase:
+
+    def __str__(self) -> str: return "DataBase"
+
     def __init__(self, configuration: Configurator):
         self.configuration = configuration
         self.database_path = Path.joinpath(self.configuration.db_path, "database.db")
@@ -16,10 +19,12 @@ class DataBase:
             if self.configuration.verbose:
                 print(f"[DataBase] >> Running initial build")
             self.scriptexec(self.build_path)
-            print(f"[DataBase] >> Database:         [ OK ]")
+            self.configuration.logger.module_ready(self)
+            # print(f"[DataBase] >> Database:         [ OK ]")
     
     def commit(self):
-        print(f"[DataBase] >> Committing")
+        if self.configuration.verbose:
+            print(f"[DataBase] >> Committing")
         self.connection.commit()
 
     def close(self):
